@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en
+">
+<head>
+	<title>Document</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial_scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+	<script src="js/bootstrap.min.js"></script>
+	<style type="text/css">
+		.row-border{
+			border: 1px solid red;
+		}
+        .col-border{
+			border: 1px  dotted blue;
+		}
+	</style>
+</head>
+<body class="container">
+	<div class="row">
+		<div class="col-lg-6 offset-3">
+			   <span id="message"></span>
+			<div class="card mt-3">
+				<div class="card-header bg-danger text-white">Sample form</div>
+                 <div class="card-body">
+                 	<form>
+                 		<input type="text" class="form-control"
+                 		onkeyup="validateform()" id="mobile" placeholder="mobile"/>
+                 	</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script >
+	function validateform() {
+		var message=document.querySelector("#message");
+      var mobile=document.querySelector("#mobile").value;
+      if (mobile.match("^[6-9]{1}[0-9]{9}$")!=null) {
+      	 message.classList.remove("alert-warning");
+        message.classList.add("alert","alert-alert");
+        message.textContent="validated number";
+      } 
+      else
+      {
+      	 message.classList.remove("alert-info");
+        message.classList.add("alert","alert-warning");
+      	message.textContent="not valid number";
+      }
+	}
+</script>
+</html>
+
+
+
